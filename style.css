@@ -1,7 +1,29 @@
-html, body {
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-canvas {
+
+body {
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+#contenedor-juego {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 16px;
+}
+
+#contenedor-juego canvas {
   display: block;
+  width: 100% !important;
+  height: auto !important;
+  border: 1px solid #2dad5e;
+  border-radius: 8px;
+  box-shadow: 0 0 32px rgba(45, 173, 94, 0.2);
 }
