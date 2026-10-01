@@ -2,17 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Juega y gana — Café Aurora</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph (compartir en redes) -->
+  <meta property="og:title"       content="¡Juega y gana un descuento en Café Aurora!">
+  <meta property="og:description" content="Demuestra tu habilidad y gana 10% de descuento en tu próxima visita.">
+  <meta property="og:type"        content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
 </head>
 <body>
-  <div id="contenedor-juego"></div>
-  <script src="sketch.js"></script>
+  <div id="wrapper">
+    <canvas id="canvas"></canvas>
+
+    <!-- Overlay: ganaste → formulario de captura -->
+    <div id="overlay" class="hidden">
+      <div class="card">
+        <div class="trophy">🏆</div>
+        <h2>¡Ganaste!</h2>
+        <p class="promo-text">Recibe tu <strong>10% de descuento</strong></p>
+        <p class="sub">en tu próxima visita a Café Aurora</p>
+        <input id="lead-input" type="text" placeholder="Tu WhatsApp o correo" autocomplete="off" inputmode="email">
+        <button id="lead-btn" class="card-btn">Recibir cupón</button>
+        <p class="legal">Al continuar aceptas recibir promociones de Café Aurora</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
 </body>
 </html>
