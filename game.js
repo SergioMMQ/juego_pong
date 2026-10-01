@@ -224,8 +224,7 @@ function end(quien) {
     if (modoJuego === '1p') {
       // Mostrar descuento según dificultad
       const pct = PROMO[dificultad];
-      document.querySelector('#overlay .promo-text').innerHTML =
-        `Recibe tu <strong>${pct} de descuento</strong>`;
+      document.querySelector('#overlay .promo-pct').textContent = pct;
       document.getElementById('overlay').classList.remove('hidden');
       setTimeout(() => document.getElementById('lead-input').focus(), 350);
     }
@@ -501,10 +500,13 @@ function handleLeadSubmit() {
   if (!input.value.trim()) { input.classList.add('shake'); setTimeout(() => input.classList.remove('shake'), 400); input.focus(); return; }
   const pct = PROMO[dificultad];
   document.querySelector('#overlay .card').innerHTML = `
-    <div class="trophy">✅</div>
+    <div class="card-icon-wrap"><span class="card-icon">✅</span></div>
     <h2>¡Cupón enviado!</h2>
-    <p class="promo-text"><strong>${pct} de descuento</strong> esperándote</p>
-    <p class="sub">Nos vemos pronto en ${MARCA.nombre} ${MARCA.emoji}</p>
-    <button class="card-btn btn-reiniciar" style="margin-top:22px">Jugar de nuevo</button>
+    <div class="discount-banner">
+      <span class="discount-pct">${pct}</span>
+      <span class="discount-label">de descuento</span>
+    </div>
+    <p class="sub">Nos vemos pronto en <strong>${MARCA.nombre}</strong> ${MARCA.emoji}</p>
+    <button class="card-btn btn-reiniciar" style="margin-top:6px">Jugar de nuevo</button>
   `;
 }

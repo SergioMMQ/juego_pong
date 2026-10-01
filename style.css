@@ -34,91 +34,130 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 8, 5, 0.88);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(8, 4, 2, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 #overlay.hidden { display: none; }
 
 .card {
-  background: #1E1008;
-  border: 1px solid #B87333;
+  background: linear-gradient(160deg, #221208, #160C05);
+  border: 1px solid rgba(184, 115, 51, 0.4);
+  border-top: 3px solid #B87333;
   border-radius: 16px;
-  padding: 28px 22px;
+  padding: 32px 26px 24px;
   text-align: center;
-  width: 84%;
-  max-width: 300px;
+  width: 86%;
+  max-width: 310px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(184,115,51,0.08);
 }
 
-.trophy { font-size: 40px; margin-bottom: 12px; }
+/* Ícono */
+.card-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  background: rgba(184,115,51,0.12);
+  border: 1px solid rgba(184,115,51,0.25);
+  border-radius: 50%;
+  margin-bottom: 14px;
+}
+.card-icon { font-size: 26px; line-height: 1; }
 
 .card h2 {
   color: #ECD5A0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+  margin-bottom: 18px;
 }
 
-.promo-text {
+/* Banner de descuento */
+.discount-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(184,115,51,0.1);
+  border: 1px solid rgba(184,115,51,0.25);
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-bottom: 14px;
+}
+.discount-pct {
+  font-size: 42px;
+  font-weight: 900;
   color: #D4944A;
-  font-size: 16px;
-  margin-bottom: 4px;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
-
-.promo-text strong { color: #ECD5A0; }
+.discount-label {
+  font-size: 12px;
+  color: #8C6B47;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
 
 .sub {
-  color: #8C6B47;
-  font-size: 13px;
+  color: #7A5A35;
+  font-size: 12px;
+  line-height: 1.5;
   margin-bottom: 20px;
 }
+.sub strong { color: #A07040; font-weight: 600; }
+
+/* Input */
+.input-wrap { position: relative; margin-bottom: 12px; }
 
 #lead-input {
   width: 100%;
-  background: #0F0805;
-  border: 1px solid #4A2E14;
+  background: rgba(15,8,5,0.8);
+  border: 1px solid #3A2010;
   border-radius: 8px;
   color: #ECD5A0;
   font-size: 14px;
-  padding: 10px 14px;
-  margin-bottom: 12px;
+  padding: 11px 14px;
   outline: none;
   font-family: 'Roboto', sans-serif;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
+#lead-input:focus {
+  border-color: #B87333;
+  box-shadow: 0 0 0 3px rgba(184,115,51,0.15);
+}
+#lead-input::placeholder { color: #3A2010; }
 
-#lead-input:focus        { border-color: #B87333; }
-#lead-input::placeholder { color: #4A2E14; }
-
-/* Animación de error si el campo está vacío */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25%       { transform: translateX(-6px); }
-  75%       { transform: translateX(6px); }
+  25%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
 }
-#lead-input.shake { animation: shake 0.35s ease; border-color: #B87333; }
+#lead-input.shake { animation: shake 0.32s ease; border-color: #B87333; }
 
+/* Botón CTA */
 .card-btn {
   width: 100%;
-  background: #B87333;
-  color: #ECD5A0;
+  background: linear-gradient(135deg, #C4842C, #A06020);
+  color: #FDF0DC;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 12px;
+  letter-spacing: 0.02em;
+  padding: 13px 16px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  transition: background 0.2s;
-  margin-bottom: 14px;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(184,115,51,0.25);
 }
-
-.card-btn:hover,
-.card-btn:active { background: #D4944A; }
+.card-btn:hover  { opacity: 0.9; }
+.card-btn:active { transform: scale(0.98); }
 
 .legal {
-  color: #4A2E14;
+  color: #3A2010;
   font-size: 10px;
-  line-height: 1.4;
+  line-height: 1.5;
 }

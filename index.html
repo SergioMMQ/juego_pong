@@ -22,12 +22,17 @@
     <!-- Overlay: ganaste → formulario de captura -->
     <div id="overlay" class="hidden">
       <div class="card">
-        <div class="trophy">🏆</div>
-        <h2>¡Ganaste! </h2>
-        <p class="promo-text">Recibe tu <strong>10% de descuento</strong></p>
-        <p class="sub">en tu próxima visita a Café Aurora</p>
-        <input id="lead-input" type="text" placeholder="Tu WhatsApp o correo" autocomplete="off" inputmode="email">
-        <button id="lead-btn" class="card-btn">Recibir cupón</button>
+        <div class="card-icon-wrap"><span class="card-icon">🏆</span></div>
+        <h2>¡Ganaste!</h2>
+        <div class="discount-banner">
+          <span class="discount-pct promo-pct">10%</span>
+          <span class="discount-label">de descuento</span>
+        </div>
+        <p class="sub">en tu próxima visita a <strong>Café Aurora</strong></p>
+        <div class="input-wrap">
+          <input id="lead-input" type="text" placeholder="Tu WhatsApp o correo" autocomplete="off" inputmode="email">
+        </div>
+        <button id="lead-btn" class="card-btn">Recibir mi cupón &rarr;</button>
         <p class="legal">Al continuar aceptas recibir promociones de Café Aurora</p>
       </div>
     </div>
