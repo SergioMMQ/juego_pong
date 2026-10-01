@@ -4,6 +4,7 @@ body {
   background: #0F0805;
   min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
@@ -156,8 +157,39 @@ body {
 .card-btn:hover  { opacity: 0.9; }
 .card-btn:active { transform: scale(0.98); }
 
-.legal {
-  color: #3A2010;
+.demo-note {
   font-size: 10px;
-  line-height: 1.5;
+  color: #6A4828;
+  background: rgba(184,115,51,0.07);
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-bottom: 12px;
 }
+
+.legal {
+  color: #6A4828;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.privacy-link {
+  color: #8C6B47;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Footer firma ───────────────────────────────────────── */
+#footer {
+  text-align: center;
+  font-size: 11px;
+  color: #3A2010;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#footer a {
+  color: #7A5228;
+  text-decoration: none;
+}
+
+#footer a:hover { text-decoration: underline; }

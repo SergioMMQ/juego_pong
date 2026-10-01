@@ -3,10 +3,13 @@
 // ── Canvas ────────────────────────────────────────────────
 const canvas = document.getElementById('canvas');
 const ctx    = canvas.getContext('2d');
-canvas.width  = 390;
-canvas.height = 600;
-const W = canvas.width;
-const H = canvas.height;
+// DPR: evita el desenfoque en pantallas de alta densidad (Retina, AMOLED)
+const dpr = Math.min(window.devicePixelRatio || 1, 3);
+canvas.width  = 390 * dpr;
+canvas.height = 600 * dpr;
+ctx.scale(dpr, dpr);
+const W = 390;
+const H = 600;
 
 // ── Marca (editable para cada cliente) ───────────────────
 const MARCA = {
@@ -363,7 +366,7 @@ function renderInicio() {
   // Instrucciones pie
   ctx.save();
   ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-  ctx.font = '11px Roboto, sans-serif'; ctx.fillStyle = C.textMuted;
+  ctx.font = '11px Roboto, sans-serif'; ctx.fillStyle = C.textSub;
   const tip = modoJuego === '1p'
     ? `Desliza el dedo · Meta ${PUNTOS_WIN} puntos para ganar`
     : `J1: zona inferior · J2: zona superior · Meta ${PUNTOS_WIN} puntos`;
@@ -495,9 +498,20 @@ document.getElementById('overlay').addEventListener('click', e => {
   if (e.target.classList.contains('btn-reiniciar')) reiniciarJuego();
 });
 
+function validarContacto(val) {
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const telRe   = /^\+?[\d\s\-\(\)]{7,15}$/;
+  return emailRe.test(val) || telRe.test(val);
+}
+
 function handleLeadSubmit() {
   const input = document.getElementById('lead-input');
-  if (!input.value.trim()) { input.classList.add('shake'); setTimeout(() => input.classList.remove('shake'), 400); input.focus(); return; }
+  if (!validarContacto(input.value.trim())) {
+    input.classList.add('shake');
+    setTimeout(() => input.classList.remove('shake'), 400);
+    input.focus();
+    return;
+  }
   const pct = PROMO[dificultad];
   document.querySelector('#overlay .card').innerHTML = `
     <div class="card-icon-wrap"><span class="card-icon">✅</span></div>
